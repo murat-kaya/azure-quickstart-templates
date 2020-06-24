@@ -25,7 +25,7 @@ steps:
     azureResourceManagerConnection: 'msinternal-selfstudy'
     subscriptionId: '70c3eaea-d851-4199-876a-0dd081199270'
     action: 'Create Or Update Resource Group'
-    resourceGroupName: 'ARMPipelinesLAMP-rg'
+    resourceGroupName: 'rg-selfstudy'
     location: 'West Europe'
     templateLocation: 'Linked artifact'
     csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
