@@ -19,12 +19,7 @@ steps:
     deploymentScope: 'Resource Group'
     azureResourceManagerConnection: 'IacRgServiceConnection'
     subscriptionId: '1bf4e93e-9af8-4f7c-9dba-a956dfdb0f32'
-    action: 'Create Or Update Resource Group'
+    action: 'DeleteRG'
     resourceGroupName: 'IAC-RG'
     location: 'West Europe'
-    templateLocation: 'Linked artifact'
-    csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
-    csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
-    overrideParameters: '-siteName $(siteName) -administratorLogin $(adminUser) -administratorLoginPassword $(ARM_PASS)'
-    deploymentMode: 'Incremental'
     
