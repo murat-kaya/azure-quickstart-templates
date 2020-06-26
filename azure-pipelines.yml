@@ -1,12 +1,7 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 variables:
   ARM_PASS: $(adminPass)
 
-trigger:
+trigger: 
 - none
 
 pool:
@@ -22,13 +17,14 @@ steps:
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'msinternal-selfstudy'
-    subscriptionId: '70c3eaea-d851-4199-876a-0dd081199270'
+    azureResourceManagerConnection: 'IacRgServiceConnection'
+    subscriptionId: '1bf4e93e-9af8-4f7c-9dba-a956dfdb0f32'
     action: 'Create Or Update Resource Group'
-    resourceGroupName: 'rg-selfstudy'
+    resourceGroupName: 'IAC-RG'
     location: 'West Europe'
     templateLocation: 'Linked artifact'
     csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
     csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
     overrideParameters: '-siteName $(siteName) -administratorLogin $(adminUser) -administratorLoginPassword $(ARM_PASS)'
     deploymentMode: 'Incremental'
+    
